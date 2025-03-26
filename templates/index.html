@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local-Echo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/local_echo.png') }}" alt="Local Echo">
+            <img src="{{ url_for('static', filename='images/ghost_icon.png') }}" alt="Ghost Icon" class="ghost-icon">
+        </div>
+        <nav class="top-nav">
+            <button class="nav-btn" onclick="navigateTo('favorite')">
+                <img src="{{ url_for('static', filename='images/favorite_icon.png') }}" alt="お気に入り">
+                お気に入り
+            </button>
+            <button class="nav-btn" onclick="navigateTo('history')">
+                <img src="{{ url_for('static', filename='images/history_icon.png') }}" alt="学習履歴">
+                学習履歴
+            </button>
+            <button class="nav-btn" onclick="navigateTo('following')">
+                <img src="{{ url_for('static', filename='images/following_icon.png') }}" alt="間違った単語">
+                間違った単語
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="translation-section">
+            <h2>Localに翻訳</h2>
+            <select id="dialect-select">
+                <option value="kansai">関西弁</option>
+                <option value="hakata">博多弁</option>
+            </select>
+            <input type="text" id="input-text" placeholder="標準語を入力する">
+            <button class="translate" onclick="translateText()">
+                <span class="translate-text">翻訳する</span>
+                <img src="{{ url_for('static', filename='images/translate_icon.png') }}" alt="翻訳" class="translate-icon">
+            </button>
+            
+        </section>
+
+        <section class="recommendations">
+            <h2>おススメ</h2>
+            <div class="recommendation-container">
+                <div class="recommendation-item" onclick="navigateTo('daily_question')">
+                    <img src="{{ url_for('static', filename='images/daily_question.png') }}" alt="本日の5問">
+                    <p>本日の5問</p>
+                </div>
+                <div class="recommendation-item" onclick="navigateTo('notebook')">
+                    <img src="{{ url_for('static', filename='images/notebook.png') }}" alt="本日のコラム">
+                    <p>本日のコラム</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="bottom-nav">
+            <button onclick="navigateTo('home')">
+                <img src="{{ url_for('static', filename='images/home_icon.png') }}" alt="HOME">
+                HOME
+            </button>
+            <button onclick="navigateTo('quiz')">
+                <img src="{{ url_for('static', filename='images/lesson_icon.png') }}" alt="QUIZ">
+                QUIZ
+            </button>
+            <button onclick="navigateTo('teacher')">
+                <img src="{{ url_for('static', filename='images/teacher_icon.png') }}" alt="TEACHER">
+                TEACHER
+            </button>
+            <button onclick="navigateTo('premium')">
+                <img src="{{ url_for('static', filename='images/premium_icon.png') }}" alt="PREMIUM">
+                PREMIUM
+            </button>
+            <button onclick="navigateTo('profile')">
+                <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="PROFILE">
+                PROFILE
+            </button>
+        </nav>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
